@@ -1,0 +1,21 @@
+﻿h1{
+    color:cadetblue
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: white;
+    background-color: cornflowerblue;
+    border-color: white;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: white;
+    background-color: lightgreen;
+    border-color: #1861ac;
+}
+

@@ -1,0 +1,44 @@
+﻿@model ProductViewModel
+
+<h1>Add new Product</h1>
+<div class="row">
+    @*definisco una riga di una tabella*@
+    <div class="col-md-4">
+        @*per bootstrap, una pagina web è divisa in 12 colonne. Con questo comando, dico che una avrà dimensione di 4*@
+        <form asp-controller="Products" asp-action="Create" method="post">
+            <input asp-for="Id" hidden />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProductCode"></label>
+                <input asp-for="ProductCode" class="form-control" /> <bt />
+                <span asp-validation-for="ProductCode" class="text-danger"></span> @*serve per visualizzare eventuali errori*@
+            </div>
+            <div class="form-group">
+                <label asp-for="Description"></label>
+                <textarea asp-for="Description" placeholder="Insert item''s description" rows="3"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Type"></label>
+                <select asp-for="Type" asp-items="Model.Typologies">
+                    <option>Please select one</option>
+                </select>
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BuyingPrice"></label>
+                <input asp-for="BuyingPrice" />
+                <span asp-validation-for="BuyingPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SellingPrice"></label>
+                <input asp-for="SellingPrice" />
+                <span asp-validation-for="SellingPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                @Html.ActionLink("Back To List", "Index", "Products", "", new { @class = "btn btn-primary" })
+            </div>
+        </form>
+    </div>
+</div>
